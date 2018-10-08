@@ -7,6 +7,25 @@
 		
 		<title>isoRearCamera</title>
 		
+		<style>
+			#snapshot {
+				position:absolute; 
+				left: 400px; 
+				border: 1px solid black; 
+				display:none; 
+			}
+			
+			#buttons-wrapper {
+				position: absolute;
+				top: 320px; 
+				left: 0px;  
+			}
+
+			.buttons{
+				width: 100px; 
+				height: 35px; 
+			}
+		</style>
 	</head>
 	<body>
 		<video id="player" autoplay playsinline width=300 height=200></video>
@@ -14,7 +33,7 @@
 		<div id="buttons-wrapper">
 			<button id="capture">Capture</button>
 		</div>
-
+		
 		<script>
 			const medias = {audio : false, video : {facingMode : {exact : "environment"}}};
 		
