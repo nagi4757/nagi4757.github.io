@@ -1,23 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Test</title>
-</head>
-<body>
-	<input type="file" accept="image/*;capture=camera"><br/> 
-	<img id="frame" /> 
-	<script>
-	  var camera = document.getElementById('camera'); 
-	  var frame = document.getElementById('frame'); 
+<video id="player" controls autoplay></video>
+<button id="capture">Capture</button>
+<canvas id="snapshot" width=320 height=240></canvas>
+<script>
+  var player = document.getElementById('player'); 
+  var snapshotCanvas = document.getElementById('snapshot');
+  var captureButton = document.getElementById('capture');
 
-	  camera.addEventListener('change', function(e) {
-		var file = e.target.files[0]; 
+  var handleSuccess = function(stream) {
+    // Attach the video stream to the video element and autoplay.
+    player.srcObject = stream;
+  };
 
-		frame.src = URL.createObjectURL(file); 
-	  })
-	</script>
-</body>
-</html>
+  captureButton.addEventListener('click', function() {
+    var context = snapshot.getContext('2d');
+    // Draw the video frame to the canvas.
+    context.drawImage(player, 0, 0, snapshotCanvas.width, 
+        snapshotCanvas.height);
+  });
+
+  navigator.mediaDevices.getUserMedia({video: true})
+      .then(handleSuccess);
+</script>
