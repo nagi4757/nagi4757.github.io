@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>isoRearCamera</title>
-		
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		
+		<title>isoRearCamera</title>
+		
 	</head>
 	<body>
-		<video id="player" autoplay playsinline></video>
-		<button id="capture">Capture</button>
-		<canvas id="snapshot" width=320 height=240></canvas>
+		<video id="player" autoplay playsinline width=300 height=200></video>
+		<canvas id="snapshot" width=300 height=200></canvas>
+		<div id="buttons-wrapper">
+			<button id="capture">Capture</button>
+		</div>
 
 		<script>
-			const medias = {audio : false, video : {facingMode : {exact : "environment"}}};
+			const medias = {video : {facingMode: "user"}};
 		
 			var player = document.getElementById('player'); 
 			var snapshotCanvas = document.getElementById('snapshot');
@@ -23,6 +26,7 @@
 				var context = snapshot.getContext('2d');
 				// Draw the video frame to the canvas.
 				context.drawImage(player, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
+				player.remove();
 			});
 			
 			function successCallback(stream) {
