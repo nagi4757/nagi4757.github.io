@@ -44,8 +44,15 @@
       <script>
         var who;
         $( document ).ready(function() {
+          $('input').keyup(function(event) {
+             $(this).blur();
+          });
+
+var hideKeyboard = function() { document.activeElement.blur();
+    $("input").blur();
+};
          
-         alert("44444444");
+         alert("55555555");
 
           $("#nameKeypad").keypad({
             target: $('#kanaKey'),
@@ -118,11 +125,10 @@
 
         function keypad_OnKeypress() {
           $("#nameKeypad").keypad("option", "target").focus();
+          
         }
        
-        var hideKeyboard = function() { document.activeElement.blur();
-         $("input").blur();
-        };
+        
       </script>
         <div id="wrapperTest">
             <!-- メイン／フッター -->
