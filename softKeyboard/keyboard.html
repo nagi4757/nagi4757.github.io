@@ -116,7 +116,7 @@
         });
 
         function keypad_OnKeypress() {
-          $("#nameKeypad").keypad("option", "target").focus();
+          $("#nameKeypad").keypad("option", "target");
           
         }
        
@@ -126,7 +126,7 @@
             <!-- メイン／フッター -->
             <div style="display:block;height:90%;overflow-x:hidden;overflow-y:hidden;">
                 <div id="mainContents">
-                 <div id="kanaKey" style="height:35px;width:450px;font-size:20pt;"></div>
+                 <input type="text" style="height:35px;width:450px;font-size:20pt;" value="" id="kanaKey" maxlength="28">
                  <button style="height:50px;width:150px;font-size:25px;" id="okBtn">確定</button>
                     <article>
                         <div id="nameKeypad" class="jqueryKeypad"></div>
