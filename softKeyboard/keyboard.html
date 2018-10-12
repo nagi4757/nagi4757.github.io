@@ -43,10 +43,7 @@
 
       <script>
         var who
-        $( document ).ready(function() {
-         
-          alert("22222222");
-        
+        $( document ).ready(function() {     
           $("#nameKeypad").keypad({
             target: $('#kanaKey'),
             clearText: '全削除',
@@ -120,15 +117,13 @@
          
          $('#kanaKey').on('touchstart', function(event) {
            var $this;
-    $this = $(this);
-    event.preventDefault();
-    return setTimeout((function() {
-      return $this.trigger('focus');
-    }), 200);
-  });
-
-         
-          $("#kanaKey").blur();
+           $this = $(this);
+           event.preventDefault();
+           return setTimeout((function() {
+             return $this.trigger('focus');
+           }), 200);
+         });
+         $("#kanaKey").blur();
         }
        
       </script>
