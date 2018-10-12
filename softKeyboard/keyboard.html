@@ -42,18 +42,8 @@
       </style>
 
       <script>
-        var who;
-        $( document ).ready(function() {
-          $('input').keyup(function(event) {
-             $(this).blur();
-          });
-
-var hideKeyboard = function() { document.activeElement.blur();
-    $("input").blur();
-};
-         
-         alert("55555555");
-
+        var who
+        
           $("#nameKeypad").keypad({
             target: $('#kanaKey'),
             clearText: '全削除',
@@ -134,8 +124,8 @@ var hideKeyboard = function() { document.activeElement.blur();
             <!-- メイン／フッター -->
             <div style="display:block;height:90%;overflow-x:hidden;overflow-y:hidden;">
                 <div id="mainContents">
-                <input type="text" style="height:35px;width:450px;font-size:20pt;" value="" id="kanaKey" maxlength="28">
-                <button style="height:50px;width:150px;font-size:25px;" id="okBtn">確定</button>
+                 <div style="height:35px;width:450px;font-size:20pt;" value="" id="kanaKey" maxlength="28"></div>
+                 <button style="height:50px;width:150px;font-size:25px;" id="okBtn">確定</button>
                     <article>
                         <div id="nameKeypad" class="jqueryKeypad"></div>
                     </article>
