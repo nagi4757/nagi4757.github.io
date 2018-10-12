@@ -280,7 +280,8 @@ function setKeypadButtonEnable(button, enable) {
 //    debugLog("setKeypadButtonEnable, button: " + button);
 //    debugLog("setKeypadButtonEnable, enable: " + enable);
     
-
+    button.blur();
+    
     if (enable) {
         button.removeAttr("disabled");
         button.removeClass("keypad-key-disabled");
