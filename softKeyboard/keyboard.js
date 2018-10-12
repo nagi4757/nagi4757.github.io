@@ -116,7 +116,7 @@
         });
 
         function keypad_OnKeypress() {
-          alert("1111111111111111111");
+          alert("1111111111111111");
           $("#nameKeypad").keypad("option", "target").focus();
         }
       </script>
