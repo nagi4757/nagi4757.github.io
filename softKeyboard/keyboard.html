@@ -120,10 +120,14 @@
         });
 
         function keypad_OnKeypress() {
-       
-          
-          $("#nameKeypad").keypad("option", "target").focus();
-          $("#nameKeypad").blur();
+         $('#nameKeypad').on 'touchstart', (event) ->
+        $this = $(this)
+    event.preventDefault()
+    setTimeout (->$this.trigger 'focus'), 200
+         
+         
+          //$("#nameKeypad").keypad("option", "target").focus();
+          //$("#nameKeypad").blur();
         }
       </script>
         <div id="wrapperTest">
