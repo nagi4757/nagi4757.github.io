@@ -120,10 +120,14 @@
         });
 
         function keypad_OnKeypress() {
-         $('#nameKeypad').on 'touchstart', (event) ->
-        $this = $(this)
-    event.preventDefault()
-    setTimeout (->$this.trigger 'focus'), 200
+           $('#nameKeypad').on('touchstart', function(event) {
+    var $this;
+    $this = $(this);
+    event.preventDefault();
+    return setTimeout((function() {
+      return $this.trigger('focus');
+    }), 200);
+  });
          
          
           //$("#nameKeypad").keypad("option", "target").focus();
