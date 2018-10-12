@@ -14,6 +14,7 @@
   <script src="resources2demo/js/lib/jquery-ui-1.11.4.min.js" ></script>
   <script src="resources2demo/js/lib/jquery.plugin-1.0.1.min.js"></script>
   <script src="resources2demo/js/lib/jquery.keypad-2.0.1.min.js"></script>
+  <script src="resources2demo/js/SelfOpt.keypad.js"></script>
   <script src="resources2demo/js/SelfOpt.common.js"></script>
    
   <style>
@@ -26,7 +27,6 @@
     input[type="text"] {
        margin: 10px;
     }
-
     #modal {
         display: none;
         position: absolute;
@@ -47,7 +47,6 @@
 //                console.log($(data).find("#modal").text());
             }
         });
-
         $("#kana1,#kana2").mouseup(function(){
             $(this).blur();
             who=$(this).attr("id");
@@ -71,11 +70,9 @@
             });
             // 下の画面スクロール禁止 ↑↑
         });
-
         $("#kanzi1").mousedown(function(){
         });
     });
-
 </script>
 </head>
 
