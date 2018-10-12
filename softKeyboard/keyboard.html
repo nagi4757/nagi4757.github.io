@@ -115,17 +115,8 @@
         });
 
         function keypad_OnKeypress() {
-           $('#nameKeypad').on('touchstart', function(event) {
-    var $this;
-    $this = $(this);
-    event.preventDefault();
-    return setTimeout((function() {
-      return $this.trigger('focus');
-    }), 200);
-  });
-         
-          //$("#nameKeypad").keypad("option", "target").focus();
-          //$("#nameKeypad").blur();
+          $("#nameKeypad").keypad("option", "target").focus();
+          $("#nameKeypad").blur();
         }
       </script>
         <div id="wrapperTest">
