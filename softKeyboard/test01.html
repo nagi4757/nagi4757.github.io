@@ -50,6 +50,7 @@
         });
 
         $("#kana1,#kana2").mouseup(function(){
+            $(this).blur();
             who=$(this).attr("id");
             if($("#modal").css("display")=="none"){
                 window.scrollTo(0,0);
