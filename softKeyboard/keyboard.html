@@ -44,7 +44,6 @@
       <script>
         var who;
         $( document ).ready(function() {
-          alert("22222222222222222222222");
 
           $("#nameKeypad").keypad({
             target: $('#kanaKey'),
@@ -57,11 +56,8 @@
             onKeypress : keypad_OnKeypress,
             keypadOnly: false
           });
-         
-         alert("3333333333333333333333333");
 
           $("#okBtn").click(function(){
-             alert("444444444444444444444444444");
              if($("#modal").css("display")=="none"){
                 $('#modal').fadeIn({queue: false, duration: 500}); 
                 $('#modal').animate({ top:100 }, 500);
@@ -95,7 +91,6 @@
           }
 
           $(".next").click(function() {
-           alert("555555555555555555555555555");
            if (vars['kou']=='1') {
               if ($($("input[type='radio']")[0]).prop("checked")) {
                 window.location.href="今後の手続きのご案内画面(受付).html?scan=0&kana1=1";
@@ -128,7 +123,6 @@
       return $this.trigger('focus');
     }), 200);
   });
-         
          
           //$("#nameKeypad").keypad("option", "target").focus();
           //$("#nameKeypad").blur();
