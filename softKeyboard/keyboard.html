@@ -61,6 +61,7 @@
          alert("3333333333333333333333333");
 
           $("#okBtn").click(function(){
+             alert("444444444444444444444444444");
              if($("#modal").css("display")=="none"){
                 $('#modal').fadeIn({queue: false, duration: 500}); 
                 $('#modal').animate({ top:100 }, 500);
@@ -94,6 +95,7 @@
           }
 
           $(".next").click(function() {
+           alert("555555555555555555555555555");
            if (vars['kou']=='1') {
               if ($($("input[type='radio']")[0]).prop("checked")) {
                 window.location.href="今後の手続きのご案内画面(受付).html?scan=0&kana1=1";
@@ -115,7 +117,6 @@
               window.location.href="漢字氏名・カナ氏名・生年月日の確認／訂正画面(受付).html";
             }
           });
-          
         });
 
         function keypad_OnKeypress() {
