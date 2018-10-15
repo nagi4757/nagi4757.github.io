@@ -6,7 +6,7 @@
   <meta author='' content=''>
   <meta keywords='' content=''>
   <meta description='' content=''>
-  <title></title>
+  <title>dummy画面</title>
   <link href="resources/css/common.css" rel="stylesheet" type="text/css" media="all" />
   <link rel="stylesheet" href="resources2demo/css/jquery.keypad.css" />
   <script src="resources2demo/js/lib/jquery-3.1.0.min.js" ></script>
@@ -27,12 +27,13 @@
     input[type="text"] {
        margin: 10px;
     }
+
     #modal {
         display: none;
         position: absolute;
         top: 500px;
         width: 100%; height: 100%;
-        background: rgba(0,0,0,0.7);
+        background: rgba(0,0,0,1);
         z-index: 100;
         padding: 10px;
     }
@@ -47,8 +48,9 @@
 //                console.log($(data).find("#modal").text());
             }
         });
-        $("#kana1,#kana2").mouseup(function(){
-            $(this).blur();
+
+        $("#kanzi1,#kanzi2,#kana1,#kana2").mouseup(function(){
+			$(this).blur();
             who=$(this).attr("id");
             if($("#modal").css("display")=="none"){
                 window.scrollTo(0,0);
@@ -56,11 +58,21 @@
                 $('#modal').animate({ top:100 }, 500);
             }else{
                 $('#modal').fadeOut({queue: false, duration: 500}); 
-                $('#modal').animate({ top:500 }, 500);
+                $('#modal').animate({ top:400 }, 500);
             }
             
             $("#kanaKey").val($("#"+who).val());
-            
+			
+			if(who == "kanzi1"){
+				$("#columText").text('colum1を入力し、確定ボタンを押してください。');
+			}else if(who == "kanzi2"){
+				$("#columText").text('colum2を入力し、確定ボタンを押してください。');
+			}else if(who == "kana1"){
+				$("#columText").text('colum3を入力し、確定ボタンを押してください。');
+			}else if(who == "kana2"){
+				$("#columText").text('colum4を入力し、確定ボタンを押してください。');
+			}
+			
             // 下の画面スクロール禁止 ↓↓
             $('html, body').css({'overflow': 'hidden', 'height': '100%'});
             $('#element').on('scroll touchmove mousewheel', function(event) {
@@ -70,33 +82,34 @@
             });
             // 下の画面スクロール禁止 ↑↑
         });
+
         $("#kanzi1").mousedown(function(){
         });
     });
+
 </script>
 </head>
 
 <body>
   <div id="wrapper">
     <div id="pageTitileName">
-      
-      <input type="button" id="help" value="呼出"><input type="button" id="topback" value="止める">
+      dummy
     </div>
     <div id="mainContents">
-      <hr> 
+      <hr> dummyナビメッセージ </hr><br>
 
       <div id="search-items">
-        <span>姓：</span><input type="text" style="width:200px;" value="" id="kanzi1" maxlength="28">
-        <span>名：</span><input type="text" style="width:200px;" value="" id="kanzi2" maxlength="28">
+        <span>colum1：</span><input type="text" style="width:200px;" value="" id="kanzi1" maxlength="28">
+        <span>colum2：</span><input type="text" style="width:200px;" value="" id="kanzi2" maxlength="28">
        <!--<span>氏名：</span><input type="text" style="width:700px;" value="琉球太郎">-->
        <br /><br />
 
-        <span>姓(カナ)：</span><input type="text" style="width:200px;" value="" id="kana1" maxlength="28">
-        <span>名(カナ)：</span><input type="text" style="width:200px;" value="" id="kana2" maxlength="28">
+        <span>colum3：</span><input type="text" style="width:200px;" value="" id="kana1" maxlength="28">
+        <span>colum4：</span><input type="text" style="width:200px;" value="" id="kana2" maxlength="28">
        <!--<span>カナ氏名：</span><input type="text" style="width:700px;" value="リュウキュウタロウ">-->
        <br /><br />
 
-        <span>生年月日：</span>
+        <span>日付：</span>
         <select name="year" class="year">
           <option value="000">&#24180;</option>
           <option value="H30">&#24179;&#25104;30(2018)&#24180;</option>
@@ -259,15 +272,6 @@
           <option value="31">31&#26085;</option>
         </select>
         <br /><br />
-       <span>勤務先名：</span><input type="text" style="width:700px;" value="株式">
-       <br /><br />
-       
-       <span>住所：</span>〒
-       <input type="text" value="900" maxlength="3" style="width:80px;">—
-       <input type="text" value="0011" maxlength="4" style="width:100px;">
-       <a href=""><input type="button" class="itemsButton" value="郵便番号検索"></a>
-       <br />
-       <span>&nbsp;</span><input type="text" style="width:700px;" value="沖縄">
       </div>
     </div>
 
