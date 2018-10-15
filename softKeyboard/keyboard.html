@@ -42,8 +42,9 @@
       </style>
 
       <script>
-        var who
-        $( document ).ready(function() {     
+        var who;
+        $( document ).ready(function() {
+
           $("#nameKeypad").keypad({
             target: $('#kanaKey'),
             clearText: '全削除',
@@ -114,25 +115,24 @@
         });
 
         function keypad_OnKeypress() {
-         
-         $('#kanaKey').on('touchstart', function(event) {
-           var $this;
-           $this = $(this);
-           event.preventDefault();
-           return setTimeout((function() {
-             return $this.trigger('focus');
-           }), 200);
-         });
-         $("#kanaKey").blur();
+			$('#kanaKey').on('touchstart', function(event) {
+				var $this;
+				$this = $(this);
+				event.preventDefault();
+				return setTimeout((function() {
+					return $this.trigger('focus');
+				}), 200);
+			});
+			$("#kanaKey").blur();
         }
-       
       </script>
         <div id="wrapperTest">
             <!-- メイン／フッター -->
             <div style="display:block;height:90%;overflow-x:hidden;overflow-y:hidden;">
                 <div id="mainContents">
-                 <input type="text" style="height:35px;width:450px;font-size:20pt;" value="" id="kanaKey" maxlength="28">
-                 <button style="height:50px;width:150px;font-size:25px;" id="okBtn">確定</button>
+				<div><font id="columText" color="white"></font><div>
+                <input type="text" style="height:35px;width:450px;font-size:20pt;" value="" id="kanaKey" maxlength="28">
+                <button style="height:50px;width:150px;font-size:25px;" id="okBtn">確定</button>
                     <article>
                         <div id="nameKeypad" class="jqueryKeypad"></div>
                     </article>
