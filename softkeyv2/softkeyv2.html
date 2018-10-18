@@ -42,7 +42,7 @@
   </style>
 <script>
 var offsettop;
-
+var who;
 $( document ).ready(function() {
 
         $.ajax({
@@ -53,12 +53,7 @@ $( document ).ready(function() {
             }
         });
 
-        $(document).on("click","#modalclose",function(){
-            if($("#modal").css("display")!="none"){
-                $('#modal').fadeOut({queue: false, duration: 500}); 
-                $('#modal').animate({ top:offsettop + 600 }, 500);
-            }
-        });
+
 
         $("#dummy1,#dummy2,#dummy3,#dummy4,#dummy5,#dummy6").mouseup(function(){
             $(this).blur();
