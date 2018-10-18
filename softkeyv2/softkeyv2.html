@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang='ja'>
+
+<head>
+  <meta charset='utf-8'>
+  <meta author='' content=''>
+  <meta keywords='' content=''>
+  <meta description='' content=''>
+  <title>ダミー０１</title>
+  <link href="resources/css/common.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="resources2demo/css/jquery.keypad.css" />
+
+  <script src="resources2demo/js/lib/jquery-3.1.0.min.js" ></script>
+  <script src="resources2demo/js/lib/jquery-migrate-3.0.0.min.js" ></script>
+  <script src="resources2demo/js/lib/jquery-ui-1.11.4.min.js" ></script>
+  <script src="resources2demo/js/lib/jquery.plugin-1.0.1.min.js"></script>
+  <script src="resources2demo/js/lib/jquery.keypad-2.0.1.min.js"></script>
+  <script src="resources2demo/js/SelfOpt.keypad.js"></script>
+  <script src="resources2demo/js/SelfOpt.common.js"></script>
+
+  <style>
+    span {
+      position: relative;
+      display:inline-block;
+      text-align:right;
+      width:120px;
+    }
+    input[type="text"] {
+       margin: 10px;
+    }
+
+    #modal {
+        display: none;
+        position: absolute;
+        top:0;
+        width: 100%; height: 100%; 
+        background: rgba(0,0,0,0.7);
+        z-index: 100;
+        padding: 10px;
+    }
+
+  </style>
+<script>
+var offsettop;
+
+$( document ).ready(function() {
+
+        $.ajax({
+            url: "keyboard-v2.html",
+            dataType: "html",
+            success: function(data){
+                $("#modal").html(data);
+            }
+        });
+
+        $(document).on("click","#modalclose",function(){
+            if($("#modal").css("display")!="none"){
+                $('#modal').fadeOut({queue: false, duration: 500}); 
+                $('#modal').animate({ top:offsettop + 600 }, 500);
+            }
+        });
+
+        $("#dummy1,#dummy2,#dummy3,#dummy4,#dummy5,#dummy6").mouseup(function(){
+            $(this).blur();
+            who=$(this).attr("id");
+            offsettop = $("#"+who).offset().top;    
+            $('html, body').animate({scrollTop : offsettop}, 400);
+
+            if($("#modal").css("display")=="none"){
+                $('#modal').css("top",offsettop + 1000);
+                $('#modal').fadeIn({queue: false, duration: 500}); 
+                $('#modal').animate({ top:offsettop + 50 }, 500);
+            }
+        });
+});
+
+</script>
+</head>
+
+<body>
+  <div id="">
+    <div id="pageTitileName">
+      ダミー画面
+    </div>
+    <div id="mainContents">
+
+      <div id="search-items">
+        <span>ダミー１：</span><input type="text" style="width:200px;" value="" id="dummy1" maxlength="28">
+        <span>ダミー２：</span><input type="text" style="width:200px;" value="" id="dummy2" maxlength="28">
+
+       <br /><br />
+<span>
+    ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>
+    ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>
+    ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>ダミー<br/>
+</span><br/>
+        <span>ダミー３：</span><input type="text" style="width:200px;" value="" id="dummy3" maxlength="28">
+        <span>ダミー４：</span><input type="text" style="width:200px;" value="" id="dummy4" maxlength="28">
+
+       <br /><br />
+        <span>ダミー</span>
+        <select name="year" class="year">
+          <option value="000">&#24180;</option>
+          <option value="H30">&#24179;&#25104;30(2018)&#24180;</option>
+          <option value="H29">&#24179;&#25104;29(2017)&#24180;</option>
+          <option value="H28">&#24179;&#25104;28(2016)&#24180;</option>
+          <option value="H27">&#24179;&#25104;27(2015)&#24180;</option>
+          <option value="H26">&#24179;&#25104;26(2014)&#24180;</option>
+          <option value="H25">&#24179;&#25104;25(2013)&#24180;</option>
+          <option value="H24">&#24179;&#25104;24(2012)&#24180;</option>
+          <option value="H23">&#24179;&#25104;23(2011)&#24180;</option>
+          <option value="H22">&#24179;&#25104;22(2010)&#24180;</option>
+          <option value="H21">&#24179;&#25104;21(2009)&#24180;</option>
+          <option value="H20">&#24179;&#25104;20(2008)&#24180;</option>
+          <option value="H19">&#24179;&#25104;19(2007)&#24180;</option>
+          <option value="H18">&#24179;&#25104;18(2006)&#24180;</option>
+          <option value="H17">&#24179;&#25104;17(2005)&#24180;</option>
+          <option value="H16">&#24179;&#25104;16(2004)&#24180;</option>
+          <option value="H15">&#24179;&#25104;15(2003)&#24180;</option>
+          <option value="H14">&#24179;&#25104;14(2002)&#24180;</option>
+          <option value="H13" selected>&#24179;&#25104;13(2001)&#24180;</option>
+          <option value="H12">&#24179;&#25104;12(2000)&#24180;</option>
+          <option value="H11">&#24179;&#25104;11(1999)&#24180;</option>
+          <option value="H10">&#24179;&#25104;10(1998)&#24180;</option>
+          <option value="H09">&#24179;&#25104;9(1997)&#24180;</option>
+          <option value="H08">&#24179;&#25104;8(1996)&#24180;</option>
+          <option value="H07">&#24179;&#25104;7(1995)&#24180;</option>
+          <option value="H06">&#24179;&#25104;6(1994)&#24180;</option>
+          <option value="H05">&#24179;&#25104;5(1993)&#24180;</option>
+          <option value="H04">&#24179;&#25104;4(1992)&#24180;</option>
+          <option value="H03">&#24179;&#25104;3(1991)&#24180;</option>
+          <option value="H02">&#24179;&#25104;2(1990)&#24180;</option>
+          <option value="H01">&#24179;&#25104;&#20803;(1989)&#24180;</option>
+          <option value="S64">&#26157;&#21644;64(1989)&#24180;</option>
+          <option value="S63">&#26157;&#21644;63(1988)&#24180;</option>
+          <option value="S62">&#26157;&#21644;62(1987)&#24180;</option>
+          <option value="S61">&#26157;&#21644;61(1986)&#24180;</option>
+          <option value="S60">&#26157;&#21644;60(1985)&#24180;</option>
+          <option value="S59">&#26157;&#21644;59(1984)&#24180;</option>
+          <option value="S58">&#26157;&#21644;58(1983)&#24180;</option>
+          <option value="S57">&#26157;&#21644;57(1982)&#24180;</option>
+          <option value="S56">&#26157;&#21644;56(1981)&#24180;</option>
+          <option value="S55">&#26157;&#21644;55(1980)&#24180;</option>
+          <option value="S54">&#26157;&#21644;54(1979)&#24180;</option>
+          <option value="S53">&#26157;&#21644;53(1978)&#24180;</option>
+          <option value="S52">&#26157;&#21644;52(1977)&#24180;</option>
+          <option value="S51">&#26157;&#21644;51(1976)&#24180;</option>
+          <option value="S50">&#26157;&#21644;50(1975)&#24180;</option>
+          <option value="S49">&#26157;&#21644;49(1974)&#24180;</option>
+          <option value="S48">&#26157;&#21644;48(1973)&#24180;</option>
+          <option value="S47">&#26157;&#21644;47(1972)&#24180;</option>
+          <option value="S46">&#26157;&#21644;46(1971)&#24180;</option>
+          <option value="S45">&#26157;&#21644;45(1970)&#24180;</option>
+          <option value="S44">&#26157;&#21644;44(1969)&#24180;</option>
+          <option value="S43">&#26157;&#21644;43(1968)&#24180;</option>
+          <option value="S42">&#26157;&#21644;42(1967)&#24180;</option>
+          <option value="S41">&#26157;&#21644;41(1966)&#24180;</option>
+          <option value="S40">&#26157;&#21644;40(1965)&#24180;</option>
+          <option value="S39">&#26157;&#21644;39(1964)&#24180;</option>
+          <option value="S38">&#26157;&#21644;38(1963)&#24180;</option>
+          <option value="S37">&#26157;&#21644;37(1962)&#24180;</option>
+          <option value="S36">&#26157;&#21644;36(1961)&#24180;</option>
+          <option value="S35">&#26157;&#21644;35(1960)&#24180;</option>
+          <option value="S34">&#26157;&#21644;34(1959)&#24180;</option>
+          <option value="S33">&#26157;&#21644;33(1958)&#24180;</option>
+          <option value="S32">&#26157;&#21644;32(1957)&#24180;</option>
+          <option value="S31">&#26157;&#21644;31(1956)&#24180;</option>
+          <option value="S30">&#26157;&#21644;30(1955)&#24180;</option>
+          <option value="S29">&#26157;&#21644;29(1954)&#24180;</option>
+          <option value="S28">&#26157;&#21644;28(1953)&#24180;</option>
+          <option value="S27">&#26157;&#21644;27(1952)&#24180;</option>
+          <option value="S26">&#26157;&#21644;26(1951)&#24180;</option>
+          <option value="S25">&#26157;&#21644;25(1950)&#24180;</option>
+          <option value="S24">&#26157;&#21644;24(1949)&#24180;</option>
+          <option value="S23">&#26157;&#21644;23(1948)&#24180;</option>
+          <option value="S22">&#26157;&#21644;22(1947)&#24180;</option>
+          <option value="S21">&#26157;&#21644;21(1946)&#24180;</option>
+          <option value="S20">&#26157;&#21644;20(1945)&#24180;</option>
+          <option value="S19">&#26157;&#21644;19(1944)&#24180;</option>
+          <option value="S18">&#26157;&#21644;18(1943)&#24180;</option>
+          <option value="S17">&#26157;&#21644;17(1942)&#24180;</option>
+          <option value="S16">&#26157;&#21644;16(1941)&#24180;</option>
+          <option value="S15">&#26157;&#21644;15(1940)&#24180;</option>
+          <option value="S14">&#26157;&#21644;14(1939)&#24180;</option>
+          <option value="S13">&#26157;&#21644;13(1938)&#24180;</option>
+          <option value="S12">&#26157;&#21644;12(1937)&#24180;</option>
+          <option value="S11">&#26157;&#21644;11(1936)&#24180;</option>
+          <option value="S10">&#26157;&#21644;10(1935)&#24180;</option>
+          <option value="S09">&#26157;&#21644;9(1934)&#24180;</option>
+          <option value="S08">&#26157;&#21644;8(1933)&#24180;</option>
+          <option value="S07">&#26157;&#21644;7(1932)&#24180;</option>
+          <option value="S06">&#26157;&#21644;6(1931)&#24180;</option>
+          <option value="S05">&#26157;&#21644;5(1930)&#24180;</option>
+          <option value="S04">&#26157;&#21644;4(1929)&#24180;</option>
+          <option value="S03">&#26157;&#21644;3(1928)&#24180;</option>
+          <option value="S02">&#26157;&#21644;2(1927)&#24180;</option>
+          <option value="S01">&#26157;&#21644;&#20803;(1926)&#24180;</option>
+          <option value="T15">&#22823;&#27491;15(1926)&#24180;</option>
+          <option value="T14">&#22823;&#27491;14(1925)&#24180;</option>
+          <option value="T13">&#22823;&#27491;13(1924)&#24180;</option>
+          <option value="T12">&#22823;&#27491;12(1923)&#24180;</option>
+          <option value="T11">&#22823;&#27491;11(1922)&#24180;</option>
+          <option value="T10">&#22823;&#27491;10(1921)&#24180;</option>
+          <option value="T09">&#22823;&#27491;9(1920)&#24180;</option>
+          <option value="T08">&#22823;&#27491;8(1919)&#24180;</option>
+          <option value="T07">&#22823;&#27491;7(1918)&#24180;</option>
+          <option value="T06">&#22823;&#27491;6(1917)&#24180;</option>
+          <option value="T05">&#22823;&#27491;5(1916)&#24180;</option>
+          <option value="T04">&#22823;&#27491;4(1915)&#24180;</option>
+          <option value="T03">&#22823;&#27491;3(1914)&#24180;</option>
+          <option value="T02">&#22823;&#27491;2(1913)&#24180;</option>
+          <option value="T01">&#22823;&#27491;&#20803;(1912)&#24180;</option>
+        </select>
+        <select name="month" class="month_day">
+          <option value="00">&#26376;</option>
+          <option value="01" selected>1&#26376;</option>
+          <option value="02">2&#26376;</option>
+          <option value="03">3&#26376;</option>
+          <option value="04">4&#26376;</option>
+          <option value="05">5&#26376;</option>
+          <option value="06">6&#26376;</option>
+          <option value="07">7&#26376;</option>
+          <option value="08">8&#26376;</option>
+          <option value="09">9&#26376;</option>
+          <option value="10">10&#26376;</option>
+          <option value="11">11&#26376;</option>
+          <option value="12">12&#26376;</option>
+        </select>
+        <select name="day" class="month_day">
+          <option value="00">&#26085;</option>
+          <option value="01" selected>1&#26085;</option>
+          <option value="02">2&#26085;</option>
+          <option value="03">3&#26085;</option>
+          <option value="04">4&#26085;</option>
+          <option value="05">5&#26085;</option>
+          <option value="06">6&#26085;</option>
+          <option value="07">7&#26085;</option>
+          <option value="08">8&#26085;</option>
+          <option value="09">9&#26085;</option>
+          <option value="10">10&#26085;</option>
+          <option value="11">11&#26085;</option>
+          <option value="12">12&#26085;</option>
+          <option value="13">13&#26085;</option>
+          <option value="14">14&#26085;</option>
+          <option value="15">15&#26085;</option>
+          <option value="16">16&#26085;</option>
+          <option value="17">17&#26085;</option>
+          <option value="18">18&#26085;</option>
+          <option value="19">19&#26085;</option>
+          <option value="20">20&#26085;</option>
+          <option value="21">21&#26085;</option>
+          <option value="22">22&#26085;</option>
+          <option value="23">23&#26085;</option>
+          <option value="24">24&#26085;</option>
+          <option value="25">25&#26085;</option>
+          <option value="26">26&#26085;</option>
+          <option value="27">27&#26085;</option>
+          <option value="28">28&#26085;</option>
+          <option value="29">29&#26085;</option>
+          <option value="30">30&#26085;</option>
+          <option value="31">31&#26085;</option>
+        </select>
+        <br /><br />
+       <span>ダミー５：</span><input id="dummy5" type="text" style="width:700px;" value="ダミー５">
+       <br /><br />
+       
+       <span>ダミー６：</span><input type="button" class="itemsButton" value="ダミー" >
+       <br />
+       <span>&nbsp;</span><input type="text" style="width:700px;" value="ダミー６" id="dummy6" >
+      </div>
+    </div>
+  </div>
+  
+  <!-- #contents START -->
+<div id="modal" >
+      
+</div>
+ 
+<!--/#contents-->
+</body>
+
+</html>

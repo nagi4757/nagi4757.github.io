@@ -1,0 +1,127 @@
+<style>
+article.indexArticle {
+  min-height: 800px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#inputArea {
+  position: relative;
+  left:25px;
+}
+
+article {
+  min-height: 800px;
+}
+
+article .input {
+  height: 600px;
+  width: 1366px;
+  position: absolute;
+  top: 290px;
+  left: 0px;
+}
+
+article #kanaKey {
+  background: initial;
+}
+article #okBtn {
+  background: initial;
+}
+input[type="radio"] {
+  height:30px;
+  width:30px;
+  margin:10px 10px 10px 10px;
+}
+
+#wrapperTest{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#modalclose{
+    position: absolute;
+    top: 0;
+    left:700px;
+}
+</style>
+
+<script>
+var who;
+$( document ).ready(function() {
+
+$("#nameKeypad").keypad({
+target: $('#kanaKey'),
+clearText: '全削除',
+backText: '1文字削除',
+spacebarText: 'ｽﾍﾟｰｽ',
+switchText:'英数字選択',
+layout: kanaLayout02,
+switchLayout: qwertyLayout02,
+onKeypress : keypad_OnKeypress,
+keypadOnly: false
+});
+
+$("#dummy1").focus(function(){
+    $("#nameKeypad").keypad("option", "target", $("#dummy1"));
+});
+
+$("#dummy2").focus(function(){
+    $("#nameKeypad").keypad("option", "target", $("#dummy2"));
+});
+$("#dummy3").focus(function(){
+    $("#nameKeypad").keypad("option", "target", $("#dummy3"));
+});
+$("#dummy4").focus(function(){
+    $("#nameKeypad").keypad("option", "target", $("#dummy4"));
+});
+$("#dummy5").focus(function(){
+    $("#nameKeypad").keypad("option", "target", $("#dummy5"));
+});
+$("#dummy6").focus(function(){
+    $("#nameKeypad").keypad("option", "target", $("#dummy6"));
+});
+
+var vars = {}; 
+var param = location.search.substring(1).split('&');
+for(var i = 0; i < param.length; i++) {
+var keySearch = param[i].search(/=/);
+var key = '';
+if(keySearch != -1) key = param[i].slice(0, keySearch);
+var val = param[i].slice(param[i].indexOf('=', 0) + 1);
+if(key != '') vars[key] = decodeURI(val);
+}
+
+$(".kou").hide();
+if (vars['kou']=='1') {
+$(".kou").show();   
+}
+
+});
+
+
+ function keypad_OnKeypress() {
+    $('#nameKeypad').on('touchstart', function(event) {
+        var $this;
+        $this = $(this);
+        event.preventDefault();
+        return setTimeout((function() {
+            return $this.trigger('focus');
+        }), 200);
+    });
+    $("#nameKeypad").blur();
+}
+
+
+
+</script>
+<div id="wrapperTest">
+    <div style="display:block;height:90%;">
+        <div id="mainContents">
+        <div id="modalclose" style="height:20px;width:20px;color:white;font-size:20pt;"> X </div>
+            <article>
+                <div id="nameKeypad" class="jqueryKeypad"></div>
+            </article>
+        </div>
+    </div>
+</div>
