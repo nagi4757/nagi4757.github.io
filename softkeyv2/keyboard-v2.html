@@ -62,7 +62,8 @@ onKeypress : keypad_OnKeypress,
 keypadOnly: false
 });
 
-$(document).on("click","#modalclose",function(){
+//$(document).on("click","#modalclose",function(){
+  $("#modalclose").click(function(){
     if($("#modal").css("display")!="none"){
         $('#modal').fadeOut({queue: false, duration: 500}); 
         $('#modal').animate({ top:offsettop + 600 }, 500);
