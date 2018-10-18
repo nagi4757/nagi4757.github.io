@@ -99,9 +99,21 @@ $(".kou").show();
 
 });
 
-function keypad_OnKeypress() {
-$("#nameKeypad").keypad("option", "target").focus();
+
+ function keypad_OnKeypress() {
+    $('#nameKeypad').on('touchstart', function(event) {
+        var $this;
+        $this = $(this);
+        event.preventDefault();
+        return setTimeout((function() {
+            return $this.trigger('focus');
+        }), 200);
+    });
+    $("#nameKeypad").blur();
 }
+
+
+
 </script>
 <div id="wrapperTest">
     <div style="display:block;height:90%;">
