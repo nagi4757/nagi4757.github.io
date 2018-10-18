@@ -62,6 +62,7 @@ $( document ).ready(function() {
         });
 
         $("#dummy1,#dummy2,#dummy3,#dummy4,#dummy5,#dummy6").mouseup(function(){
+            $(this).blur();
             who=$(this).attr("id");
             offsettop = $("#"+who).offset().top;    
             $('html, body').animate({scrollTop : offsettop}, 400);
